@@ -5,18 +5,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jquery/jquery-3.2.1.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Adding</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
 
 
+<jsp:include page="/WEB-INF/views/header1.jsp"></jsp:include>
 <div class="container">
 <div class="page-header">
 </div>
@@ -40,8 +42,8 @@
 <div class="tab-pane fade in active" id="tab1Prime">
 <form action="<c:url value="/admin/saveCat"/>" method="post">
 <span id="reauth-email" class="reuth-email"></span>
-<h4><label>Category ID</label></h4>
-<input class="form-control" type="number" name="cid" required/>
+<!-- <h4><label>Category ID</label></h4> -->
+<input class="form-control" type="hidden" name="cid" required/>
 
 <h4><label>Category Name</label></h4>
 <input class="form-control" type="text" name="cname" required/>
@@ -54,8 +56,8 @@
 <div class="tab-pane fade" id="tab2Prime">
 <form action="<c:url value="/admin/saveSupp"/>" method="post">
 <span id="reauth-email" class="reuth-email"></span>
-<h4><label>Supplier ID</label></h4>
-<input class="form-control" type="number" name="sid" required/>
+<!-- <h4><label>Supplier ID</label></h4> -->
+<input class="form-control" type="hidden" name="sid" required/>
 <h4><label>Supplier Name</label></h4>
 <input class="form-control" type="text" name="sname" required/>
 <button class="btn btn-lg btn-primary" type="submit">OK</button>
@@ -103,7 +105,7 @@
 
 <div class="fileinput fileinput-new" data-provides="fileinput">
 <h4><Label>Image</Label></h4>
-<input class="form-control" type="file" name="file" accept="image/*">
+<input class="form-control" type="file" name="file" accept="image/**">
 </div>
 
 <button class="btn btn-lg btn-primary" type="submit">OK</button>
@@ -122,5 +124,12 @@
 </div>
 </div>
 </div>
+
+
+
+<br><br>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+
+
 </body>
 </html>

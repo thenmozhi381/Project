@@ -2,14 +2,14 @@ package com.controller;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-/*import org.springframework.ui.Model;*/
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,11 +40,13 @@ public class adminController {
 	{return "modal";}
 	
 	@RequestMapping(value="/saveSupp",method=RequestMethod.POST)
-	public ModelAndView saveSupplierdetails(@RequestParam("sid")int sid,@RequestParam("sname")String sname)
+	//public ModelAndView saveSupplierdetails(@RequestParam("sid")int sid,@RequestParam("sname")String sname)
+	public ModelAndView saveSupplierdetails(@RequestParam("sname")String sname)
+	
 	{
 	ModelAndView mv=new ModelAndView();
 	Supplierdetails s=new Supplierdetails();
-	s.setSid(sid);
+	//s.setSid(sid);
 	s.setSname(sname);
 	supplierDaoImpl.insertSupplierdetails(s);
 	mv.setViewName("adding");
@@ -52,11 +54,13 @@ public class adminController {
 	}
 	
 	@RequestMapping(value="/saveCat",method=RequestMethod.POST)
-	public ModelAndView saveCategorydetails(@RequestParam("cid")int cid,@RequestParam("cname")String cname)
+	//public ModelAndView saveCategorydetails(@RequestParam("cid")int cid,@RequestParam("cname")String cname)
+	public ModelAndView saveCategorydetails(@RequestParam("cname")String cname)
+	
 	{
 	ModelAndView mv=new ModelAndView();
 	Categorydetails c=new Categorydetails();
-	c.setCid(cid);
+	//c.setCid(cid);
 	c.setCname(cname);
 	categoryDaoImpl.insertCategorydetails(c);
 	mv.setViewName("adding");
@@ -75,7 +79,7 @@ public class adminController {
 	p.setSupplierdetails(supplierDaoImpl.findById(Integer.parseInt(req.getParameter("pSupplier"))));
 	p.setStock(Integer.parseInt(req.getParameter("pStock")));
 	p.setDescription(req.getParameter("pDescription"));
-	//String imgName=req.getParameter("imgname");
+	
 	   
 	
 	String filepath=req.getSession().getServletContext().getRealPath("/");
@@ -87,15 +91,22 @@ public class adminController {
 	try
 	{
 		byte imagebyte[]=file.getBytes();
-		BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"/images/"+filename));
-		fos.write(imagebyte);
+		//BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream("C:\\Users\\THENMOZHI\\workspace\\FloristCharm\\src\\main\\resources\\"+"/ "+filename));
+	BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"/images/"+filename));
+
+	//	BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"/"+filename));
+	/*BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream("C:/Users/THENMOZHI/workspace/FloristCharm/src/main/webapp/images/"+" "+filename));*/
+	
+	
+	
+	fos.write(imagebyte);
 		fos.close();
 	}
 	catch(IOException e)
 	{
 		e.printStackTrace();}
 	
-	return "modal";
+	return "adding";
 	}
 	
 	
@@ -197,7 +208,7 @@ public class adminController {
 	try
 	{
 		byte imagebyte[]=file.getBytes();
-		BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"/resources/"+filename));
+		BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"/images/"+filename));
 		fos.write(imagebyte);
 		fos.close();
 	}

@@ -6,6 +6,7 @@ import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DaoImpl.*;
 import com.model.*;
 @SuppressWarnings("unused")
 @Controller
+
 @Repository
 public class CartController {
 	@Autowired
@@ -68,7 +71,7 @@ public class CartController {
 		String prodName=request.getParameter("pName");
 		String imgName=request.getParameter("pImg");
 		
-
+		
 	
 	
 Cart cartExists=cartDaoImpl.getCartById(pid, userEmail)	;
@@ -85,6 +88,7 @@ User u=userDaoImpl.findUserById(userEmail);
 cm.setCartUserDetails(u);
 cartDaoImpl.insert(cm);
 
+
 }
 	
 	else if(cartExists!=null)
@@ -99,6 +103,8 @@ cartDaoImpl.insert(cm);
 	
 	cm.setCartUserDetails(u);
 	cartDaoImpl.updateCart(cm);
+	
+
 	
 }
 	mv.addObject("cartInfo",cartDaoImpl.findCartById(userEmail));
@@ -152,7 +158,7 @@ return mv;
 	
 	
 	@RequestMapping(value="/invoiceprocess",method=RequestMethod.POST)
-	public ModelAndView orderSaved(HttpServletRequest req)
+	public ModelAndView orderSaved(HttpServletRequest req,HttpSession session)
 	{ModelAndView mv=new ModelAndView("invoice");
 	Orders ord=new Orders();
 	Principal principal=req.getUserPrincipal();
@@ -172,6 +178,7 @@ return mv;
 	mv.addObject("cartInfo",cartDaoImpl.findCartById(userEmail));
 	mv.addObject("cart",cart);
 	
+	
 	return mv;
 	}
 	
@@ -188,11 +195,27 @@ return mv;
 	{ModelAndView mv=new ModelAndView();
 	Principal principal=req.getUserPrincipal();
 	String userEmail=principal.getName();
+	 
 	mv.addObject("cartInfo",cartDaoImpl.findCartById(userEmail));
+	
 	mv.setViewName("Cart");
 return mv;	
 
 	}
+	
+	@RequestMapping(value="/goToCart1",method=RequestMethod.GET)
+	public ModelAndView gotocart1(HttpServletRequest req)
+	{ModelAndView mv=new ModelAndView();
+	Principal principal=req.getUserPrincipal();
+	String userEmail=principal.getName();
+	 
+	mv.addObject("cartInfo",cartDaoImpl.findCartById(userEmail));
+	
+	mv.setViewName("Cart1");
+return mv;	
+
+	}
+	
 	
 	}
 	

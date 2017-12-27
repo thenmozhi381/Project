@@ -8,13 +8,20 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
-  <div class="container-fluid">    
+  <div class="container-fluid">   
+  <p class="text-center"><b>copyright</b><span class="glyphicon glyphicon-copyright-mark"></span>2017</p>
+ 	<!-- <div style="padding:0px;margin:0px;text-align:center">   -->
 <ul class="nav navbar-nav">
  <li><a href="contact">Contact Us</a></li>
  <li><a href="about">About Us</a></li>
  <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+
  </ul>
  </div>
- </nav>
+<!--  </div>
+ --> </nav>
 </body>
 </html>
+
+
+

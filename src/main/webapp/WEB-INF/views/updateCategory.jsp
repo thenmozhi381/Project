@@ -20,8 +20,8 @@
 <div class="container">
 <form method="post" action="<c:url value="/admin/Categoryupdate"/>" class="form-signin">
 <span id="reauth-email" class="reauth-email"></span>
-<h4 class="input_title">Category ID</h4>
-<input class="form-control" type="number" name="cid" value="${cat.cid }" required>
+<!-- <h4 class="input_title">Category ID</h4> -->
+<input class="form-control" type="hidden"  name="cid" value="${cat.cid }" required>
 
 <h4 class="input_title">Category Name</h4>
 <input class="form-control" type="text" name="cname" value="${c.cname }" required>

@@ -18,6 +18,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include> 
 <h1>Thank you for shopping with us!!!</h1>
-
+<td><a href="${pageContext.request.contextPath}/index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

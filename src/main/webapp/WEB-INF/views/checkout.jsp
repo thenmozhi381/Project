@@ -111,8 +111,9 @@ colour:white;
 
 <div class="form-group">
 <label> Expiry</label><br>
+<tr><td colspan="2">
 <input type="number" min="2017" max="3000" name="year" placeholder="YY"  class="form-control"><input type="number" min="1" max="12" name="month" placeholder="MM"  class="form-control">
-<!-- <input type="number" min="1" max="31" name="date" placeholder="DD"> -->
+<!-- <input type="number" min="1" max="31" name="date" placeholder="DD"> --></td></tr>
 </div>
 
 

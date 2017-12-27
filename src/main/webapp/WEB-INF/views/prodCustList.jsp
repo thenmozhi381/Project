@@ -46,14 +46,19 @@
 <td><c:out value="${p.supplierdetails.sname}"/></td>
 
 <td><c:out value="${p.description}"/></td>
-<td><img src="${pageContext.request.contextPath}/resources/${p.imgname}"></td>
-<td class="span2">
+<%-- <td><img src="${pageContext.request.contextPath}/resources/${p.imgname}"></td> --%>
+<td><img src="${pageContext.request.contextPath}/images/${p.imgname}" height="50px" width="50px" ></td>
+
+<td class="span4">
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <a class="btn btn-info" role="button" href="<c:url value="/prodDetails/${p.id}"/>">Details</a>
+
+
 </td>
 </tr>
 </c:forEach>
 </table>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include> 
 </body>
 </html>

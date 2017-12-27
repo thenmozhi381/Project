@@ -21,18 +21,7 @@ http://www.springframework.org/schema/context
  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="300000000" />
 </bean>
-<!--  <bean id="multipartResolver"
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        max upload size in bytes
-        <property name="maxUploadSize" value="20971520" /> 20MB
-         
-        max size of file in memory (in bytes)
-        <property name="maxInMemorySize" value="1048576" /> 1MB
- 
-    </bean>
-     
- 
- --> <bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ <bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  <property name="prefix" value= "/WEB-INF/views/"></property>
  <property name="suffix" value=".jsp"></property>
  </bean>

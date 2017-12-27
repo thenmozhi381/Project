@@ -22,7 +22,11 @@
 <div class="container">
 <div class="row">
 <div class="col-sm-6 item-photo">
-<img style="max-width:100%; margin-top:30px;"src="${pageContext.request.contextPath}/resources/${product.imgname}"> 
+<img style="max-width:100%; margin-top:30px;" src="${pageContext.request.contextPath}/images/${product.imgname}"> 
+<br>
+
+<%-- <img src="C:\Users\THENMOZHI\workspace\FloristCharm\src\main\webapp\images\ ${product.imgname}" style="max-width:100%; margin-top:30px;"> --%>
+  
 </div>
 <div class="col-md-6" style="border:0px solid gray">
 
@@ -54,12 +58,12 @@
 <div class="col-xs-9">
 <ul class="menu-items">
 <li>Details of the product</li>
-
+<hr><br><hr>
+<p>All our products are ISO:9001:2007 certified.</p>
 </ul>
 </div>
 
-<hr><br><hr>
-<p>All our products are ISO:9001:2007 certified.</p>
+
 
 
 

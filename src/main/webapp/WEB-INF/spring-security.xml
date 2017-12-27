@@ -16,7 +16,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/security
 
 
-
 http://www.springframework.org/schema/security/spring-security.xsd">
 	<security:http auto-config="true">
 	<security:intercept-url access="permitAll" pattern="/webapp/images/**"/>
@@ -25,7 +24,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	
 	<security:form-login login-page="/login"
 			default-target-url="/" login-processing-url="/login"
-			authentication-failure-url="/error"
+			authentication-failure-url="/login"
 			authentication-success-forward-url="/login_session_attributes" />
 
 	
@@ -36,14 +35,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	<security:logout logout-success-url="/" invalidate-session="true" logout-url="/logout"/>
 	</security:http>
 	
-	<!-- <security:authentication-manager>
-	<security:authentication-provider>
-	<security:jdbc-user-service data-source-ref="datasource"
-	authorities-by-username-query="select email,role from user where email=?"
-	users-by-username-query="select email,password,'TRUE' as enabled from user where email=?"/>
-	</security:authentication-provider>
-	</security:authentication-manager>
-	 -->
+	
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:jdbc-user-service

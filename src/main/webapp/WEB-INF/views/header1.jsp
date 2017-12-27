@@ -35,7 +35,7 @@
 <ul class="nav navbar-nav">
 
  
-<li><a href="<c:url value="/index"/>"><i class="fa fa-home" aria-hidden="true"></i>Home </a></li>
+<li><a href="<c:url value="/index1"/>"><i class="fa fa-home" aria-hidden="true"></i>Home </a></li>
 <%-- <li><a href="${pageContext.request.contextPath}/admin/adding">Admin</a></li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin List <span class="caret"></span></a>
 <ul class="dropdown-menu">
@@ -64,14 +64,14 @@
 <c:if test="${pageContext.request.userPrincipal.name!=null }">
 <li><a>Welcome:${pageContext.request.userPrincipal.name}</a></li>
 <li><a href="<c:url value="/logout"/>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>Logout</a></li>
-<li><a href="${pageContext.request.contextPath}/goToCart">My Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+<li><a href="${pageContext.request.contextPath}/goToCart1">My Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
 
 
 
 
  
 <%-- <c:if test="${pageContext.request.userPrincipal.name== Admin}">
-
+ --%>
 
 <li><a href="${pageContext.request.contextPath}/admin/adding">Admin</a></li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin List <span class="caret"></span></a>
@@ -84,7 +84,7 @@
 </ul>
 
 </c:if>
- --%></c:if>
+<%-- </c:if> --%>
  </ul>
 
 </ul>

@@ -9,7 +9,7 @@
 <body>
 <!-- <h2>Access Denied!!!! Error Alert!!!<a href="/FloristCharm"> Go to Home</a></h2>
  -->
- <p><h2>ErrorPage!!!<a href="${pageContext.request.contextPath }/admin/index/">Go to Home</a></h2>
+ <p><h2>ErrorPage!!!<a href="${pageContext.request.contextPath }/index">Go to Home</a></h2>
  
  </body>
 </html>

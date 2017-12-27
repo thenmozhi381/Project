@@ -12,10 +12,9 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<h1 style="text-align:center;">About Florist Charm</h1>
+<h1 style="text-align:center;">About Foodizo</h1>
 
-<p style="text-align:justify;">It is a flower bouquet online delivery shop located in chennai.The brand provides solutions for everybody's floral needs, be it buying flowers for occasions, floral deccor 
-for weddings, parties or just delivering fresh flowers not only in India but across the globe.</p>
+<p style="text-align:justify;">It is a fast and easy way to order food online through its website .Our menus interface provides a feature packed ordering service that will increase new and repeat users for restaurants. </p>
 
 <jsp:include page="footer.jsp"></jsp:include>
 </body>

@@ -44,6 +44,13 @@ public class Indexcontroller {
 	{
 		return "index";
 	}
+	
+	
+	@RequestMapping("/index1")
+	public String index1()
+	{
+		return "index1";
+	}
 	/*@RequestMapping("/register")
 	public String registration()
 	{
@@ -59,14 +66,37 @@ public class Indexcontroller {
 	}
 	
 	@RequestMapping(value="/saveRegister",method=RequestMethod.POST)
-	public ModelAndView saveUser( @Valid @ModelAttribute("user") User user, BindingResult res)
-	{
+	public ModelAndView saveUser( @Valid User user, BindingResult res)
+	{ if(res.hasErrors())
+{return new ModelAndView("register");
+
+}
 		ModelAndView mv=new ModelAndView();
 		user.setRole("ROLE_USER");
 		userDaoImpl.insertUser(user);
 		mv.setViewName("login");
 		return mv;
 	}
+	
+	
+	/* @RequestMapping(value="/saveRegister", method = RequestMethod.POST)
+	 
+	     public String submitForm(@Valid  @ModelAttribute("user") User user, BindingResult res) {
+	 
+	         String returnVal = "login";
+	         user.setRole("ROLE_USER");
+	 		userDaoImpl.insertUser(user);
+	         if(res.hasErrors()) {
+	 
+	             returnVal = "register";
+	 
+	         }
+	 
+	         return returnVal;
+	
+	     }*/
+
+	
 	
 	
 	@ModelAttribute
@@ -90,19 +120,7 @@ public class Indexcontroller {
 	}
 	
 	
-/*	@RequestMapping(value="/prodDetails/{pid}")
-	
-	
-	public ModelAndView productDetails(@PathVariable("pid")int pid)
-	{
-		ModelAndView mv= new ModelAndView();
-		Productdetails p=productDaoImpl.findById(pid);
-		mv.addObject("product",p);
-		mv.setViewName("prodDetails");
-		return mv;
-	}
-	
-	*/
+
 	/*
 	@RequestMapping(value="/addToCart",method=RequestMethod.POST)
 	public ModelAndView addToCart(HttpServletRequest req)
@@ -125,16 +143,7 @@ public class Indexcontroller {
 	
 	*/
 	
-	/*@RequestMapping(value="/prodCustList")
-	public ModelAndView getCustTable(@RequestParam ("cid") int cid)
-	{
-		System.out.println(cid);
-	ModelAndView mv=new ModelAndView();
-	mv.addObject("prodList",productDaoImpl.retrieve());
-	mv.setViewName("prodCustList");//productCustList
-	return mv;
-	}
-	*/
+	
 	
 	
 	@RequestMapping("/custList")
@@ -146,23 +155,38 @@ public class Indexcontroller {
 		
 	}
 	
-	/*@RequestMapping("/login")
-	public ModelAndView gotologin()
-	{ModelAndView mav=new ModelAndView();
-	mav.setViewName("login");
-	return mav;
-	}*/
+	
+	
+/*	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public  ModelAndView signin(User user, BindingResult res)
+	{
+		ModelAndView mv=new ModelAndView();
+		
+		mv.setViewName("login");
+		return mv;
+		
+}*/
+	
+	
+	
+	
+	
 	
 	@RequestMapping("/login")
 	public String signin()
-	{
-		return "login";
-
-}
+	{return "login";
+	
+	}
+	
+	
+	
+	
 
 @SuppressWarnings("unchecked")
 	@RequestMapping(value = "/login_session_attributes")
 	public String login_session_attributes(HttpSession session,Model model) {
+	
+
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//User username = userDaoImpl.insertUser(email);
 		session.setAttribute("username", user.getEmail());
@@ -178,12 +202,15 @@ public class Indexcontroller {
 		     if (authority.getAuthority().equals(role)) 
 		     {
 		    	 session.setAttribute("LoggedIn", "true");
-			 page="/adding";
+		    	return "redirect:/admin/adding";
+		    	  //page="/adding";
 		    	 }
 		     else 
 		     {
 		    	 session.setAttribute("UserLoggedIn", "true");
-			page="/prodCustList";
+		    	return "redirect:/index";
+		    
+		    	 //page="/prodCustList";
 		    }
 		}
 		return page;
@@ -224,5 +251,10 @@ public class Indexcontroller {
 		return "about";
 
 }
+	@RequestMapping("/modal")
+	public String abts()
+	{
+		return "modal";
+	}
 
 }

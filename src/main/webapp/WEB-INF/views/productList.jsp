@@ -1,22 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page isELIgnored="false" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src="jquery/jquery-3.2.1.js"></script>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/header1.jsp"></jsp:include>
 <br>
 <div class="container">
 <h1>Product List</h1>
@@ -49,8 +54,14 @@
 <td><c:out value="${c.categorydetails.cname}"/></td>
 <td><c:out value="${c.supplierdetails.sname}"/></td>
 <td><c:out value="${c.description}"/></td>
-<td><img src="${pageContext.request.contextPath}/resources/${c.imgname}"></td>
+<td><img src="${pageContext.request.contextPath}/images/${c.imgname}" height="50px" width="50px"></td>
 
+ <%-- <td><img src="C:\Users\THENMOZHI\Apache Tomcat\wtpwebapps\FloristCharm\images\ ${c.imgname}" height="50px" width="50px"></td> --%>
+ 
+ <%-- <td><img src="C:\Users\THENMOZHI\workspace\FloristCharm\src\main\webapp\images\ ${c.imgname}" height="50px" width="50px"></td> --%>
+ 
+ <!-- images/flow1.jpg" -->
+ <%-- <td><img src="${pageContext.request.contextPath}/resources/${c.imgname}"></td> --%>
 <td class="span4">
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <a class="btn btn-info" role="button" href="<c:url value="/admin/deleteProduct/${c.id}"/>">Delete</a>

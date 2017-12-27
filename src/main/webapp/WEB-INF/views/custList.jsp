@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/header1.jsp"></jsp:include>
 
 <div class="container">
 <h1><label>Customer List</label></h1>
